@@ -12,8 +12,8 @@ router.get('/', function(req, res, next) {
 router.get('/pokemon/:id', function(req, res, next) {
   const pokemons = req.app.get("pokemons");
   let id = req.params.id;
-  if(id < 0 || id > pokemon.length) {
-    res.status(404).send("ID must be between 0 et 150")
+  if(id < 0 || id > pokemons.length) {
+    res.status(404).send("ID must be between 0 et " + pokemons.length)
   }
   res.send(pokemons[id]);
 });
