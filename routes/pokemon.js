@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 router.get('/pokemon/:id', function(req, res, next) {
   const pokemons = req.app.get("pokemons");
   let id = req.params.id;
-  if(id < 0 || id > pokemons.length) {
+  if(id < 0 || id > pokemons.length-1) {
     res.status(404).send("ID must be between 0 et " + pokemons.length-1)
   }
   res.send(pokemons[id]);
